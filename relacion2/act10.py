@@ -32,7 +32,13 @@ if not ayunas:
                             if protTotales > 6:
                                 if esHombre:
                                     if hemoglobina > 13.5:
-                                       print("PUEDE DONAR")
+                                        if plaquetas > 150:
+                                            if protTotales > 6:
+                                                print("PUEDE DONAR")
+                                            else:
+                                                print("NO PUEDE DONAR")
+                                        else:
+                                            print("NO PUEDE DONAR")        
                                     else:
                                        print("NO PUEDE DONAR")
                                 else:
