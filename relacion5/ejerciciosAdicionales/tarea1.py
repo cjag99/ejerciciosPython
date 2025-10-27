@@ -149,8 +149,142 @@ def rota(num, lista):
         
     return lista
 
-
+#Devuelve una lista con el menor y mayor elemento de la lista dada
+def rango(lista):
+    if len(lista) == 0:
+        raise ValueError("Error: La lista no puede estar vacía")
+    else:
+        menor = min(lista)
+        mayor = max(lista)
         
+    return [menor, mayor]
+#Devuelve una lista sin los extremos de la lista dada
+def interior(lista):
+    if len(lista) < 2:
+        raise ValueError("Error: La lista debe tener al menos 2 elementos")
+    else:
+        return lista[1:-1]
+#Devuelve una lista con los n últimos elementos de la lista dada, controlando que n no sea mayor que la longitud de la lista
+def finales(n, lista):
+    if n > len(lista):
+        raise ValueError(f"Error: {n} es mayor que {len(lista)}")
+    elif n < 0:
+        raise ValueError(f"Error: {n} no equivale a una posición válida")
+    else:
+        return lista[-n:]
+#Devuelve una lista con los elementos comprendidos entre las posiciones m y n, controlando que m y n sean válidos
+def segmento(m, n, lista):
+    if m < 0 or n < 0 or m >= len(lista) or n > len(lista):
+        raise ValueError("Error: Las posiciones no son válidas")
+    elif m >= n:
+        return []
+    else:
+        return lista[m:n]
+#Devuelve una lista con los n primeros y n últimos elementos de la lista dada, controlando que n no sea mayor que la longitud de la lista
+def extremos(n, lista):
+    if n > len(lista):
+        raise ValueError(f"Error: {n} es mayor que {len(lista)}")
+    elif n < 0:
+        raise ValueError(f"Error: {n} no equivale a una posición válida")
+    else:
+        return lista[:n] + lista[-n:]
+#Devuelve la tupla que representa el rectángulo de mayor área entre las dos dadas
+def mayorRectangulo(r1, r2):
+    area1 = r1[0] * r1[1]
+    area2 = r2[0] * r2[1]
+    if area1 >= area2:
+        return r1
+    else:
+        return r2
+#Devuelve la tupla con las coordenadas intercambiadas
+def intercambia(p):
+    return (p[1], p[0]) 
+
+#Programa principal
+def main():
+    while True:
+        menu()
+        opcion = seleccionarOpcion()
+        
+        if opcion == 0:
+            print("Saliendo del programa...")
+            break
+        elif opcion == 1:
+            cadena = recogerCadena()
+            numVocales = contarVocales(cadena)
+            print(f"La cadena tiene {numVocales} vocales.")
+        elif opcion == 2:
+            cadena = recogerCadena()
+            numPalabras = contarPalabras(cadena)
+            print(f"La cadena tiene {numPalabras} palabras.")
+        elif opcion == 3:
+            num1 = recogerNumero()
+            num2 = recogerNumero()
+            num3 = recogerNumero()
+            suma1 = sumar(num1, num2)
+            sumaTotal = sumar(suma1, num3)
+            print(f"La suma de los tres números es: {sumaTotal}")
+        elif opcion == 4:
+            num = recogerNumero()
+            lista = recogerLista()
+            try:
+                listaRotada = rota(num, lista)
+                print(f"La lista rotada es: {listaRotada}")
+            except ValueError as e:
+                print(e)
+        elif opcion == 5:
+            lista = recogerLista()
+            try:
+                rangoLista = rango(lista)
+                print(f"El rango de la lista es: {rangoLista}")
+            except ValueError as e:
+                print(e)
+        elif opcion == 6:
+            lista = recogerLista()
+            try:
+                listaInterior = interior(lista)
+                print(f"La lista interior es: {listaInterior}")
+            except ValueError as e:
+                print(e)
+        elif opcion == 7:
+            n = recogerNumero()
+            lista = recogerLista()
+            try:
+                listaFinales = finales(n, lista)
+                print(f"Los últimos {n} elementos de la lista son: {listaFinales}")
+            except ValueError as e:
+                print(e)
+        elif opcion == 8:
+            m = recogerNumero()
+            n = recogerNumero()
+            lista = recogerLista()
+            try:
+                segmentoLista = segmento(m, n, lista)
+                print(f"El segmento de la lista es: {segmentoLista}")
+            except ValueError as e:
+                print(e)
+        elif opcion == 9:
+            n = recogerNumero()
+            lista = recogerLista()
+            try:
+                listaExtremos = extremos(n, lista)
+                print(f"Los extremos de la lista son: {listaExtremos}")
+            except ValueError as e:
+                print(e)
+        elif opcion == 10:
+            print("Introduzca las dimensiones del primer rectángulo:")
+            r1 = recogerTupla()
+            print("Introduzca las dimensiones del segundo rectángulo:")
+            r2 = recogerTupla()
+            mayorRect = mayorRectangulo(r1, r2)
+            print(f"El rectángulo de mayor área es: {mayorRect}")
+        elif opcion == 11:
+            print("Introduzca las coordenadas del punto:")
+            p = recogerTupla()
+            puntoIntercambiado = intercambia(p)
+            print(f"El punto con las coordenadas intercambiadas es: {puntoIntercambiado}")
+        else:
+            print("Opción no válida.")
 
 
 
