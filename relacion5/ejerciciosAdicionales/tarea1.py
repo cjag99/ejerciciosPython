@@ -202,8 +202,8 @@ def intercambia(p):
 
 #Programa principal
 def main():
+    menu()
     while True:
-        menu()
         opcion = seleccionarOpcion()
         
         if opcion == 0:
@@ -285,6 +285,9 @@ def main():
             print(f"El punto con las coordenadas intercambiadas es: {puntoIntercambiado}")
         else:
             print("Opción no válida.")
+            
+        input("Pulse cualquier tecla para continuar...")
 
 
 
+main()
