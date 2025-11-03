@@ -6,6 +6,7 @@ ventas = {"Arroz":{"L": 250, "M": 300, "X": 275, "J": 400, "V": 350},
 
 #Funcion que ejecuta el programa
 def main():
+    #Incializamos las diferentes sublistas que necesitamos a partir de la original
     global ventas
     ventasMensuales = funciones.getVentasMensuales(ventas)
     productoMasVendido = funciones.getMaxVentasMensuales(ventasMensuales)
