@@ -9,7 +9,7 @@ def menu():
     print("MENÚ DE OPCIONES:")
     print("a)Listado de teléfonos, usando el orden por defecto.")
     print("b)Listado de teléfonos por orden alfabético.")
-    print("c)Añadir un nuevo contacto.")
+    print("c)insertar un nuevo contacto.")
     print("d)Modificar el teléfono de un contacto.")
     print("e)Buscar un número de teléfono.")
     print("f)Eliminar un contacto.")
@@ -40,8 +40,8 @@ def listado_telefonos_alfabetico():
     for nombre in sorted(agenda):
         print(f"{nombre}: {agenda[nombre]}")
 
-#Función para añadir un nuevo contacto
-def añadir_contacto():
+#Función para insertar un nuevo contacto
+def insertar_contacto():
     nombre = input("Ingrese el nombre del contacto: ")
     telefono = input("Ingrese el número de teléfono: ")
     if nombre in agenda:
@@ -66,7 +66,7 @@ def modificar_telefono():
         print(f"Número de teléfono de {nombre} modificado con éxito.")
     else:
         print("El contacto no existe.")
-        print("Desea añadirlo como nuevo contacto? (s/n)")
+        print("Desea insertarlo como nuevo contacto? (s/n)")
         respuesta = input().lower()
         if respuesta == 's':
             telefono = input("Ingrese el número de teléfono: ")
@@ -120,7 +120,7 @@ def main():
             case 'b':
                 listado_telefonos_alfabetico()
             case 'c':
-                añadir_contacto()
+                insertar_contacto()
             case 'd':
                 modificar_telefono()
             case 'e':
