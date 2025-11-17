@@ -65,7 +65,7 @@ def mostrarVentasMensuales(lista):
 #Función que devuelve el producto más vendido de una lista y su valor de ventas
 def getMaxVentasMensuales(lista):
     productoMasVendido = dict()
-    max_producto = max(lista, key=lista.get)
+    max_producto = max(lista, key=lista.get) #El get esta devolviedno el key y no el value
     productoMasVendido[max_producto] = lista[max_producto]
     return productoMasVendido
 
