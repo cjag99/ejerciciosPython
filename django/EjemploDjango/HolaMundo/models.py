@@ -25,3 +25,6 @@ class Author (models.Model):
     english_level=models.CharField(verbose_name='Nivel de Inglés',
     max_length=2, choices=EnglishLevel.choices,
     default=EnglishLevel.A1)
+
+    def __str__(self):
+        return f'{self.name} {self.last_name}'
